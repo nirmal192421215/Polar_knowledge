@@ -3,6 +3,10 @@
 **Ministry of Earth Sciences (MoES) & National Centre for Polar and Ocean Research (NCPOR)**  
 *Category: Software · Domain: Smart Education / Environmental Informatics*
 
+> 🌐 **Live Production Deployment**: [https://polar-knowledge-one.vercel.app](https://polar-knowledge-one.vercel.app)  
+> 📦 **GitHub Repository**: [https://github.com/nirmal192421215/Polar_knowledge](https://github.com/nirmal192421215/Polar_knowledge)  
+> 🧪 **System Health**: 14/14 Automated Tests Passing · 100% Production Ready
+
 ---
 
 ## 🌟 Executive Summary
