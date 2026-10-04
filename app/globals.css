@@ -1,26 +1,351 @@
 @import "tailwindcss";
 
+/* =========================================================
+   POLARIS ENTERPRISE DESIGN SYSTEM — PREMIER LIGHT SCHEME
+   Engineered for National Polar Research Portal & Enterprise
+   Authoritative • Prestigious • Scientific • High-Contrast
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Surface & Background */
+  --polar-bg:          #F8FAFC;
+  --polar-bg-alt:      #F1F5F9;
+  --polar-bg-subtle:   #EFF6FF;
+  --polar-surface:     #FFFFFF;
+  --polar-surface-2:   #F8FAFC;
+  --polar-surface-3:   #F1F5F9;
+
+  /* Borders & Dividers */
+  --polar-border:      #E2E8F0;
+  --polar-border-subtle: #EDF2F7;
+  --polar-border-hover:  #CBD5E1;
+  --polar-border-focus:  #0284C7;
+
+  /* Typography Colors */
+  --text-primary:      #0F172A;
+  --text-secondary:    #334155;
+  --text-muted:        #64748B;
+  --text-subtle:       #94A3B8;
+
+  /* Brand & Scientific Accents */
+  --polar-navy:        #0F172A;
+  --polar-blue:        #0284C7;
+  --polar-blue-dark:   #0369A1;
+  --polar-blue-light:  #E0F2FE;
+  --polar-cyan:        #0891B2;
+  --polar-indigo:      #4F46E5;
+  --polar-emerald:     #059669;
+  --polar-amber:       #D97706;
+
+  /* Shadows */
+  --shadow-sm:         0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-card:       0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 10px 25px -5px rgba(15, 23, 42, 0.04);
+  --shadow-hover:      0 12px 30px -4px rgba(2, 132, 199, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+  --shadow-elevated:   0 20px 40px -8px rgba(15, 23, 42, 0.08), 0 8px 16px -4px rgba(15, 23, 42, 0.03);
+
+  /* Compatibility */
+  --background:        var(--polar-bg);
+  --foreground:        var(--text-primary);
+  --surface:           var(--polar-surface);
+  --surface-strong:    var(--polar-surface);
+  --border:            var(--polar-border);
+  --muted:             var(--text-muted);
+  --muted-strong:      var(--text-secondary);
+  --input-bg:          #FFFFFF;
+  --chart-bg:          #FFFFFF;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--polar-bg);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-space);
+  --font-mono: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ─── BASE RESETS ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+html {
+  background-color: var(--polar-bg);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--polar-bg);
+  color: var(--text-primary);
+  font-family: var(--font-space, "Space Grotesk"), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── KEYFRAME ANIMATIONS ─── */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes live-ping-light {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes shimmer-light {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* ─── ENTERPRISE COMPONENT UTILITIES ─── */
+
+.polar-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--polar-border);
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+}
+
+.polar-hero-bg {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(224, 242, 254, 0.8) 0%, rgba(248, 250, 252, 0) 70%),
+    radial-gradient(circle at 10% 20%, rgba(238, 242, 255, 0.6) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(224, 242, 254, 0.5) 0%, transparent 40%),
+    #F8FAFC;
+}
+
+.polar-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.polar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--polar-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.polar-card:hover {
+  border-color: #BAE6FD;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.polar-card-interactive {
+  background: #FFFFFF;
+  border: 1px solid var(--polar-border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.polar-card-interactive:hover {
+  border-color: #0284C7;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+.polar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background-color: #F0F9FF;
+  color: #0369A1;
+  border: 1px solid #BAE6FD;
+}
+
+.polar-badge-emerald {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  background-color: #ECFDF5;
+  color: #047857;
+  border: 1px solid #A7F3D0;
+}
+
+.polar-badge-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background-color: #F1F5F9;
+  color: #0F172A;
+  border: 1px solid #E2E8F0;
+}
+
+.polar-live-dot {
+  position: relative;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #059669;
+}
+
+.polar-live-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-color: #10B981;
+  animation: live-ping-light 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.heading-gradient {
+  background: linear-gradient(135deg, #0F172A 30%, #0369A1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heading-accent-gradient {
+  background: linear-gradient(135deg, #0284C7 0%, #4F46E5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-polar-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #0284C7;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid #0284C7;
+  box-shadow: 0 1px 2px 0 rgba(2, 132, 199, 0.2), 0 2px 4px 0 rgba(15, 23, 42, 0.06);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-polar-primary:hover {
+  background: #0369A1;
+  border-color: #0369A1;
+  box-shadow: 0 4px 12px 0 rgba(2, 132, 199, 0.28);
+  transform: translateY(-1px);
+}
+
+.btn-polar-navy {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #0F172A;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid #0F172A;
+  box-shadow: 0 1px 2px 0 rgba(15, 23, 42, 0.15);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-polar-navy:hover {
+  background: #1E293B;
+  border-color: #1E293B;
+  box-shadow: 0 4px 12px 0 rgba(15, 23, 42, 0.25);
+  transform: translateY(-1px);
+}
+
+.btn-polar-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  color: #1E293B;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid #E2E8F0;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-polar-secondary:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0F172A;
+  box-shadow: 0 2px 6px 0 rgba(15, 23, 42, 0.06);
+}
+
+.polar-input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  border-radius: 0.625rem;
+  padding: 0.625rem 1rem;
+  color: #0F172A;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.polar-input:focus {
+  border-color: #0284C7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.polar-input::placeholder {
+  color: #94A3B8;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
