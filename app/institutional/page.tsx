@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../Navbar";
 import { useMemo, useState } from "react";
 
@@ -858,14 +859,14 @@ export default function InstitutionalPage() {
       <footer className="bg-[#0F1E3D] text-white">
         <div className="mx-auto max-w-7xl px-6 py-12">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sky-500 text-slate-950 font-black text-sm">
-                P
-              </div>
-              <div>
-                <span className="text-lg font-black tracking-widest text-white">POLARIS</span>
-                <p className="text-xs text-slate-400">National Polar Science Knowledge Hub</p>
-              </div>
+            <div className="bg-white rounded-xl px-3 py-1.5 shadow-sm inline-flex items-center">
+              <Image
+                src="/images/polaris_logo.png"
+                alt="POLARIS — India's Polar Science & Knowledge Portal"
+                width={170}
+                height={55}
+                className="h-9 w-auto object-contain"
+              />
             </div>
 
             <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400">

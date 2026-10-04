@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "./nav-config";
 
@@ -50,24 +51,18 @@ export default function Navbar() {
 
       {/* ── 2. UNIFIED ENTERPRISE NAVBAR ── */}
       <nav className="bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5">
 
           {/* BRAND LOGO */}
-          <Link href="/" className="group flex items-center gap-2.5 shrink-0">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 text-white shadow-sm shadow-blue-500/30">
-              <span className="text-base font-black">P</span>
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-lg font-black tracking-[0.1em] text-slate-900">POLARIS</span>
-                <span className="rounded bg-blue-100 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-blue-700">
-                  National Hub
-                </span>
-              </div>
-              <p className="text-[10px] text-slate-500 font-medium leading-none">
-                India&apos;s Polar Science &amp; Knowledge Portal
-              </p>
-            </div>
+          <Link href="/" className="group flex items-center gap-2.5 shrink-0" aria-label="POLARIS Home">
+            <Image
+              src="/images/polaris_logo.png"
+              alt="POLARIS — India's Polar Science & Knowledge Portal"
+              width={240}
+              height={88}
+              className="h-11 sm:h-12 md:h-14 w-auto object-contain transition duration-200 group-hover:opacity-90"
+              priority
+            />
           </Link>
 
           {/* NAV LINKS (Unified 9 Links, Strictly Identical Order) */}

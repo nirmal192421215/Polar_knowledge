@@ -755,13 +755,15 @@ export default async function Home() {
 
             {/* BRANDING */}
             <div className="md:col-span-1">
-              <div className="flex items-center gap-2.5 mb-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-500 text-white font-black text-sm shadow">
-                  P
-                </div>
-                <div>
-                  <span className="text-xl font-black tracking-widest text-white">POLARIS</span>
-                  <p className="text-[10px] text-blue-300 font-medium">Polar Science Knowledge Hub</p>
+              <div className="mb-4 inline-block">
+                <div className="bg-white rounded-xl px-3 py-1.5 shadow-sm inline-flex items-center">
+                  <Image
+                    src="/images/polaris_logo.png"
+                    alt="POLARIS — India's Polar Science & Knowledge Portal"
+                    width={180}
+                    height={60}
+                    className="h-10 w-auto object-contain"
+                  />
                 </div>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
