@@ -62,15 +62,19 @@
   --font-mono: var(--font-inter);
 }
 
-/* ─── BASE RESETS ─── */
+/* ─── BASE RESETS & MOBILE TOUCH SMOOTHNESS ─── */
 *, *::before, *::after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 html {
@@ -85,6 +89,14 @@ body {
   font-family: var(--font-space, "Space Grotesk"), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Prevent iOS Safari auto-zoom on form inputs */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* ─── KEYFRAME ANIMATIONS ─── */

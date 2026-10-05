@@ -270,7 +270,7 @@ export default function PolarAI() {
           onClick={() => setIsOpen(true)}
           aria-label="Open POLAR AI Copilot"
           title="Open POLAR AI Copilot"
-          className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 text-2xl text-white shadow-xl shadow-blue-600/30 transition-all duration-300 hover:scale-105 hover:shadow-blue-600/40"
+          className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 text-xl sm:text-2xl text-white shadow-xl shadow-blue-600/30 transition-all duration-300 hover:scale-105 hover:shadow-blue-600/40 active:scale-95"
         >
           🤖
         </button>
@@ -283,11 +283,11 @@ export default function PolarAI() {
       {isOpen && (
         <div
           className={`
-            fixed bottom-6 right-6 z-50
-            flex h-[620px] w-[390px]
-            max-w-[calc(100vw-32px)]
+            fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-50
+            flex h-[560px] sm:h-[620px] w-[calc(100vw-24px)] sm:w-[390px]
+            max-w-[400px] max-h-[calc(100dvh-24px)]
             flex-col overflow-hidden
-            rounded-3xl border
+            rounded-2xl sm:rounded-3xl border
             ${windowClass}
           `}
         >

@@ -352,29 +352,29 @@ function ExploreSection({ regionFilter }: { regionFilter?: string }) {
         </div>
       )}
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-2.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map((card) => (
           <Link
             key={card.title}
             href={card.href}
-            className="polar-card p-6 flex flex-col justify-between group"
+            className="polar-card p-3.5 sm:p-6 rounded-xl sm:rounded-2xl flex flex-col justify-between group"
           >
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-3xl">{card.icon}</span>
-                <span className="rounded-full bg-sky-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-sky-700 border border-sky-200">
+              <div className="flex items-center justify-between gap-1 mb-2.5 sm:mb-4">
+                <span className="text-2xl sm:text-3xl">{card.icon}</span>
+                <span className="rounded-full bg-sky-50 px-2 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-sky-700 border border-sky-200 truncate max-w-[85px] sm:max-w-none">
                   {card.tag}
                 </span>
               </div>
-              <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+              <h3 className="text-xs sm:text-lg font-bold text-slate-900 group-hover:text-sky-600 transition-colors leading-tight">
                 {card.title}
               </h3>
-              <p className="mt-2 text-xs leading-5 text-slate-600 font-normal">
+              <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs leading-snug sm:leading-5 text-slate-600 font-normal line-clamp-2 sm:line-clamp-none">
                 {card.description}
               </p>
             </div>
 
-            <div className="mt-6 flex items-center gap-1 text-xs font-bold text-sky-700 group-hover:translate-x-1 transition-transform">
+            <div className="mt-3 sm:mt-6 flex items-center gap-1 text-[11px] sm:text-xs font-bold text-sky-700 group-hover:translate-x-1 transition-transform">
               Explore Section <span>→</span>
             </div>
           </Link>

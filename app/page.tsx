@@ -219,29 +219,31 @@ export default async function Home() {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {RESOURCE_CARDS.map((card) => (
+        <div className="grid grid-cols-2 gap-2.5 sm:gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {RESOURCE_CARDS.map((card, idx) => (
             <Link
               key={card.href + card.title}
               href={card.href}
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] sm:aspect-auto sm:min-h-[260px] block"
+              className={`group relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[4/5] sm:aspect-auto sm:min-h-[260px] block ${
+                idx === 4 ? "col-span-2 sm:col-span-1" : ""
+              }`}
             >
               <Image
                 src={card.img}
                 alt={card.title}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
               <div className={`absolute inset-0 bg-gradient-to-t ${card.color}`} />
-              <div className="absolute inset-0 flex flex-col justify-between p-4">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm text-lg">
+              <div className="absolute inset-0 flex flex-col justify-between p-3 sm:p-4">
+                <div className="flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-lg bg-white/20 backdrop-blur-sm text-sm sm:text-lg">
                   {card.icon}
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-white">{card.title}</h3>
-                  <p className="mt-1 text-xs text-white/80 leading-4">{card.desc}</p>
-                  <span className="mt-3 inline-flex items-center gap-1 text-xs font-bold text-white group-hover:gap-2 transition-all">
+                  <h3 className="text-xs sm:text-base font-bold text-white leading-tight">{card.title}</h3>
+                  <p className="mt-1 text-[11px] sm:text-xs text-white/85 leading-tight line-clamp-2 sm:line-clamp-none">{card.desc}</p>
+                  <span className="mt-2 inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-white group-hover:gap-2 transition-all">
                     Explore →
                   </span>
                 </div>
@@ -308,7 +310,7 @@ export default async function Home() {
             </Link>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4">
             {[
               {
                 icon: "🐧",
@@ -386,21 +388,21 @@ export default async function Home() {
               <Link
                 key={card.href + card.title}
                 href={card.href}
-                className="group rounded-2xl border border-slate-200 bg-white p-6 flex flex-col justify-between transition hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
+                className="group rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-6 flex flex-col justify-between transition hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl">{card.icon}</span>
-                    <span className={`rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider border ${card.tagCls}`}>
+                  <div className="flex items-center justify-between gap-1 mb-2.5 sm:mb-4">
+                    <span className="text-2xl sm:text-3xl">{card.icon}</span>
+                    <span className={`rounded-full px-2 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider border truncate max-w-[85px] sm:max-w-none ${card.tagCls}`}>
                       {card.tag}
                     </span>
                   </div>
-                  <h3 className={`text-sm font-bold text-slate-900 group-hover:${card.accent} transition-colors`}>
+                  <h3 className={`text-xs sm:text-sm font-bold text-slate-900 group-hover:${card.accent} transition-colors leading-tight`}>
                     {card.title}
                   </h3>
-                  <p className="mt-2 text-xs leading-5 text-slate-500">{card.desc}</p>
+                  <p className="mt-1 sm:mt-2 text-[11px] sm:text-xs leading-snug sm:leading-5 text-slate-500 line-clamp-2 sm:line-clamp-none">{card.desc}</p>
                 </div>
-                <div className="mt-4 flex items-center gap-1 text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
+                <div className="mt-2.5 sm:mt-4 flex items-center gap-1 text-[11px] sm:text-xs font-bold text-blue-600 group-hover:translate-x-1 transition-transform">
                   Explore →
                 </div>
               </Link>
@@ -751,10 +753,10 @@ export default async function Home() {
       ══════════════════════════════════════════ */}
       <footer className="bg-[#0F1E3D] text-white">
         <div className="mx-auto max-w-7xl px-5 py-14">
-          <div className="grid gap-10 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-10 sm:gap-8 md:grid-cols-4">
 
             {/* BRANDING */}
-            <div className="md:col-span-1">
+            <div className="col-span-2 md:col-span-1">
               <div className="mb-4 inline-block">
                 <div className="bg-white rounded-xl px-3 py-1.5 shadow-sm inline-flex items-center">
                   <Image
@@ -776,7 +778,7 @@ export default async function Home() {
             </div>
 
             {/* POLAR DOMAINS */}
-            <div>
+            <div className="col-span-1">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Polar Domains</h4>
               <ul className="space-y-2.5 text-xs text-slate-300">
                 {[
@@ -794,7 +796,7 @@ export default async function Home() {
             </div>
 
             {/* REPOSITORIES */}
-            <div>
+            <div className="col-span-1">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Knowledge Repositories</h4>
               <ul className="space-y-2.5 text-xs text-slate-300">
                 {[
@@ -812,7 +814,7 @@ export default async function Home() {
             </div>
 
             {/* DATA STANDARDS */}
-            <div>
+            <div className="col-span-2 sm:col-span-1 border-t sm:border-t-0 border-white/10 pt-4 sm:pt-0">
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Scientific Governance</h4>
               <div className="space-y-2.5 text-xs text-slate-300">
                 {[
